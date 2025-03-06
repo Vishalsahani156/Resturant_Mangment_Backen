@@ -24,12 +24,25 @@ const userShcema = new mongoose.Schema(
       type: String,
       required: [true, "password is the requred"],
     },
-    avatar: {
-      type: String, // avatar is uploade from claudinary
-      required: [true, "requred a avatar"],
+    // avatar: {
+    //   type: String, // avatar is uploade from claudinary
+    //   required: [true, "requred a avatar"],
+    // },
+    address: {
+      type: Array,
+      required: true,
+    },
+    phone: {
+      type: String,
+      required: true,
+    },
+    userType: {
+      type: String,
+      default: "clint",
+      enum: ["clint", "admin", "vendor", "driver"],
     },
   },
-  Timestamp()
+  { timestamps: true }
 );
 
 export const User = mongoose.model("User", userShcema);
